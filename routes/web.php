@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $user = User::first();
+    $colors = [
+        'Red',
+        'Blue',
+        'Purple',
+        'Yellow',
+        'Green'
+    ];
+
+    $user->favorite_color = Arr::random($colors);
+
+    return view('welcome', compact('user'));
 });
