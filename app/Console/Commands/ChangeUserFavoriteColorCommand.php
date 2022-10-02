@@ -47,6 +47,8 @@ class ChangeUserFavoriteColorCommand extends Command
                 'favorite_color' => Arr::random($colors)
             ]);
 
+            UserFavoriteColorChanged::dispatch($user);
+
             return Command::SUCCESS;
         } catch (\Throwable $th) {
             Log::error($th->getMessage());
