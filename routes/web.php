@@ -17,15 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $user = User::first();
-    $colors = [
-        'Red',
-        'Blue',
-        'Purple',
-        'Yellow',
-        'Green'
-    ];
-
-    $user->favorite_color = Arr::random($colors);
 
     return view('welcome', compact('user'));
 });
