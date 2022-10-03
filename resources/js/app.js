@@ -11,7 +11,7 @@ let echo = new Echo({
     enabledTransports: ["ws", "wss"],
 });
 
-echo.channel("favorite-color").listen("UserFavoriteColorChanged", (event) => {
+echo.private("private-favorite-color").listen("UserFavoriteColorChanged", (event) => {
     const color = event.user.favorite_color.toLowerCase();
 
     document.getElementById("favorite_color").innerHTML = event.user.favorite_color;

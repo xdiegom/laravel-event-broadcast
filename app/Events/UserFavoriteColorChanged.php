@@ -35,6 +35,6 @@ class UserFavoriteColorChanged implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('favorite-color');
+        return new PrivateChannel('private-favorite-color');
     }
 }
